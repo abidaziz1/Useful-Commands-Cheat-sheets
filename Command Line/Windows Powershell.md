@@ -1,14 +1,4 @@
----
 
-## **PowerShell Basics**
-
-### Launching PowerShell
-- **From Start Menu**: Search "PowerShell" and select it.
-- **Run Dialog**: `Win + R`, type `powershell`, press Enter.
-- **File Explorer**: Type `powershell` in the address bar of any folder.
-- **From CMD**: Type `powershell` in Command Prompt.
-
----
 
 ### Basic Cmdlet Structure
 - **Syntax**: `Verb-Noun -Parameter <value>`
