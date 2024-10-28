@@ -195,3 +195,72 @@ These commands focus on extracting HTTP URIs, FTP commands, SMTP details, and ot
 | `tshark -r <file> -T fields -e <field>`      | Extract specific fields (e.g., `http.host`, `ip.src`).                                           | `tshark -r capture.pcap -T fields -e ip.src -e ip.dst` |
 | `tshark -r <file> -Y <filter> -T fields -e <field>` | Apply filter, then extract fields.                                                                | `tshark -r capture.pcap -Y 'http' -T fields -e http.host` |
 
+Here’s a structured TShark command-line cheat sheet in table format, covering basic, intermediate, and advanced commands with examples and combinations to make it easy for quick reference.
+
+---
+
+| **Feature**                     | **Command** & **Example**                                                                                                       | **Description**                                                                                      |
+|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| **Basic Read & Display**        | `tshark -r file.pcap`                                                                                                           | Reads a `.pcap` file in TShark.                                                                      |
+| **Display Filter**              | `tshark -r file.pcap -Y 'http'`                                                                                                 | Filters packets to show only HTTP traffic.                                                           |
+| **Extract Specific Fields**     | `tshark -r file.pcap -T fields -e ip.src -e ip.dst -E header=y`                                                                 | Extracts source and destination IP addresses with headers.                                           |
+
+---
+
+### **Statistics and Protocol Hierarchy**
+
+| **Feature**                      | **Command** & **Example**                                                                                                        | **Description**                                                                                     |
+|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| **Protocol Hierarchy**           | `tshark -r file.pcap -z io,phs -q`                                                                                               | Displays a summary of protocols in the capture.                                                     |
+| **Packet Length Distribution**    | `tshark -r file.pcap -z plen,tree -q`                                                                                            | Shows distribution of packet sizes.                                                                 |
+| **Endpoint Statistics**          | `tshark -r file.pcap -z endpoints,ip -q`                                                                                         | Lists all endpoints by IP address.                                                                  |
+| **Conversation Statistics**      | `tshark -r file.pcap -z conv,ip -q`                                                                                              | Shows conversation stats between IPs (e.g., byte counts, frame counts).                             |
+
+---
+
+### **Advanced Filtering: Contains & Matches**
+
+| **Feature**                      | **Command** & **Example**                                                                                                        | **Description**                                                                                     |
+|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| **Contains Filter (case-sensitive)** | `tshark -r file.pcap -Y 'http.server contains "Apache"'`                                                                      | Filters for packets where `http.server` contains "Apache".                                          |
+| **Matches Filter (regex)**       | `tshark -r file.pcap -Y 'http.request.method matches "(GET|POST)"'`                                                              | Filters HTTP packets where request method matches "GET" or "POST".                                  |
+
+---
+
+### **Stream Analysis**
+
+| **Feature**                      | **Command** & **Example**                                                                                                        | **Description**                                                                                     |
+|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| **Follow TCP Stream**            | `tshark -r file.pcap -z follow,tcp,ascii,0 -q`                                                                                   | Follows the TCP stream of the 0th session in ASCII format.                                          |
+| **Follow HTTP Stream**           | `tshark -r file.pcap -z follow,http,ascii,1 -q`                                                                                  | Follows the 1st HTTP stream in ASCII format.                                                        |
+
+---
+
+### **Extracting Information for Investigation**
+
+| **Feature**                  | **Command** & **Example**                                                                                                         | **Description**                                                                                       |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| **Extract Hostnames (DHCP)** | `tshark -r file.pcap -T fields -e dhcp.option.hostname | awk NF | sort -r | uniq -c | sort -r`                   | Extracts DHCP hostnames, sorts, and shows counts of unique values.                                     |
+| **Extract DNS Queries**      | `tshark -r file.pcap -T fields -e dns.qry.name | awk NF | sort -r | uniq -c | sort -r`                                                       | Extracts DNS query names, sorts, and displays counts for each unique query.                             |
+| **Extract User Agents**      | `tshark -r file.pcap -T fields -e http.user_agent | awk NF | sort -r | uniq -c | sort -r`                                                      | Extracts and counts HTTP user agents to help identify client types or tool signatures.                  |
+
+---
+
+### **Exporting Objects & Detecting Credentials**
+
+| **Feature**                    | **Command** & **Example**                                                                                                         | **Description**                                                                                       |
+|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| **Export HTTP Objects**        | `tshark -r file.pcap --export-objects http,<target_folder> -q`                                                                   | Extracts HTTP objects/files from the capture to a specified folder.                                   |
+| **Detect Cleartext Credentials** | `tshark -r file.pcap -z credentials -q`                                                                                         | Finds cleartext credentials in protocols like FTP, HTTP, IMAP, POP, and SMTP.                         |
+
+---
+
+### **Combined Commands for Workflow Efficiency**
+
+| **Task**                               | **Combined Command**                                                                                                        | **Description**                                                                                     |
+|----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| **Extract and Count DNS Queries**      | `tshark -r file.pcap -T fields -e dns.qry.name | awk NF | sort -r | uniq -c | sort -r`                                                      | Extracts and organizes DNS queries to identify frequently accessed domains.                           |
+| **Extract and Sort HTTP User Agents**  | `tshark -r file.pcap -T fields -e http.user_agent | awk NF | sort -r | uniq -c | sort -r`                                                      | Lists unique user agents and shows counts, helpful for identifying patterns in browser or bot traffic. |
+| **Follow TCP Stream and Filter Output**| `tshark -r file.pcap -z follow,tcp,ascii,0 -q | grep "<pattern>"`                                                              | Follows a TCP stream, filters for specific patterns, allowing focused stream analysis.               |
+
+---
