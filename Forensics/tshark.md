@@ -138,3 +138,60 @@ tshark -Y "tcp.flags.fin == 1"
 ```bash
 tshark -Y "tls and tcp.port == 443"
 ```
+
+
+---
+
+## **Extended TShark Commands for Protocol-Specific Filtering**
+
+These commands focus on extracting HTTP URIs, FTP commands, SMTP details, and other frequently analyzed protocol data.
+
+### **HTTP Protocol Analysis**
+
+| Command                                          | Description                                                                                      | Example                                                 |
+|--------------------------------------------------|--------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| `tshark -r <file> -Y 'http.request.full_uri'`    | Display full URIs of HTTP requests.                                                              | `tshark -r capture.pcap -Y 'http.request.full_uri'`     |
+| `tshark -r <file> -Y 'http.request.method'`      | Display only HTTP request methods (GET, POST, etc.).                                             | `tshark -r capture.pcap -Y 'http.request.method'`       |
+| `tshark -r <file> -Y 'http.response.code == 200'`| Filter for HTTP responses with a status code of 200 (OK).                                        | `tshark -r capture.pcap -Y 'http.response.code == 200'` |
+| `tshark -r <file> -Y 'http.host'`                | Extract HTTP host headers to see which domains were contacted.                                   | `tshark -r capture.pcap -Y 'http.host'`                 |
+
+### **DNS Protocol Analysis**
+
+| Command                                      | Description                                                                                      | Example                                                |
+|----------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| `tshark -r <file> -Y 'dns'`                  | Display only DNS traffic.                                                                        | `tshark -r capture.pcap -Y 'dns'`                      |
+| `tshark -r <file> -Y 'dns.qry.name'`         | Display DNS query names to see which domains were requested.                                     | `tshark -r capture.pcap -Y 'dns.qry.name'`             |
+| `tshark -r <file> -Y 'dns.a'`                | Display resolved IP addresses from DNS responses.                                                | `tshark -r capture.pcap -Y 'dns.a'`                    |
+| `tshark -r <file> -Y 'dns.qry.type == 1'`    | Display only DNS "A" (Address) records.                                                          | `tshark -r capture.pcap -Y 'dns.qry.type == 1'`        |
+
+### **FTP Protocol Analysis**
+
+| Command                                          | Description                                                                                      | Example                                                 |
+|--------------------------------------------------|--------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| `tshark -r <file> -Y 'ftp'`                      | Display only FTP traffic.                                                                        | `tshark -r capture.pcap -Y 'ftp'`                       |
+| `tshark -r <file> -Y 'ftp.request.command'`      | Display FTP request commands (e.g., USER, PASS, LIST).                                           | `tshark -r capture.pcap -Y 'ftp.request.command'`       |
+| `tshark -r <file> -Y 'ftp.response.arg'`         | Display arguments in FTP responses.                                                              | `tshark -r capture.pcap -Y 'ftp.response.arg'`          |
+
+### **SMTP Protocol Analysis**
+
+| Command                                          | Description                                                                                      | Example                                                 |
+|--------------------------------------------------|--------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| `tshark -r <file> -Y 'smtp'`                     | Display only SMTP traffic.                                                                       | `tshark -r capture.pcap -Y 'smtp'`                      |
+| `tshark -r <file> -Y 'smtp.req.parameter'`       | Extract SMTP request parameters, useful for analyzing email headers or commands.                 | `tshark -r capture.pcap -Y 'smtp.req.parameter'`        |
+| `tshark -r <file> -Y 'smtp.rcpt_to'`             | Display the recipient addresses in SMTP (e.g., RCPT TO).                                         | `tshark -r capture.pcap -Y 'smtp.rcpt_to'`              |
+
+### **ICMP Protocol Analysis**
+
+| Command                                  | Description                                                                                      | Example                                                |
+|------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| `tshark -r <file> -Y 'icmp'`             | Display only ICMP traffic.                                                                       | `tshark -r capture.pcap -Y 'icmp'`                     |
+| `tshark -r <file> -Y 'icmp.type == 8'`   | Display only ICMP Echo (ping) requests.                                                          | `tshark -r capture.pcap -Y 'icmp.type == 8'`           |
+| `tshark -r <file> -Y 'icmp.code == 0'`   | Filter by specific ICMP code, useful for identifying ICMP message types.                         | `tshark -r capture.pcap -Y 'icmp.code == 0'`           |
+
+### **General Field Extraction**
+
+| Command                                      | Description                                                                                      | Example                                                |
+|----------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| `tshark -r <file> -T fields -e <field>`      | Extract specific fields (e.g., `http.host`, `ip.src`).                                           | `tshark -r capture.pcap -T fields -e ip.src -e ip.dst` |
+| `tshark -r <file> -Y <filter> -T fields -e <field>` | Apply filter, then extract fields.                                                                | `tshark -r capture.pcap -Y 'http' -T fields -e http.host` |
+
