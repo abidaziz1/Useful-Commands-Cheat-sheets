@@ -5,7 +5,6 @@ In Snort, the command parameters can be combined or separated to control various
    snort -v
    ```
    This command runs Snort in verbose mode, showing packet summaries in real-time.
-
 2. **Verbose with decoded output**  
    ```
    snort -vd
