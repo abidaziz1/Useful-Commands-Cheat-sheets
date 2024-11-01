@@ -1,5 +1,3 @@
----
-
 ### **Basic Command Structure**
 ```bash
 sqlmap -u <URL> [options]
@@ -92,5 +90,3 @@ sqlmap -u <URL> [options]
 - `--os-pwn`: Attempts privilege escalation on the operating system.
 - `--priv-esc`: Searches for privilege escalation vulnerabilities in the DBMS.
 - `--sqlmap-shell`: Provides an interactive SQL shell for advanced commands.
-
----
