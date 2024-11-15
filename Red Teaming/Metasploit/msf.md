@@ -1,11 +1,8 @@
----
 
 ### **Launching Metasploit Console**
 ```bash
 msfconsole
 ```
-
----
 
 ### **Essential Commands**
 | Command                      | Usage                                    |
@@ -118,8 +115,6 @@ Generate payloads in various formats:
 | `unset [option]`             | Unset a specific option.                                   |
 | `unsetg [option]`            | Unset a global option.                                     |
 
----
----
 
 ### **General Commands**
 | Command              | Description                                                  |
@@ -273,4 +268,3 @@ Generate payloads in various formats:
 | `spool <file>`       | Save console output to a file.                               |
 | `unset spool`        | Stop spooling console output to a file.                      |
 
----
