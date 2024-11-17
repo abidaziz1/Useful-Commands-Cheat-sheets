@@ -1,4 +1,3 @@
-
 ### **Launching Metasploit Console**
 ```bash
 msfconsole
