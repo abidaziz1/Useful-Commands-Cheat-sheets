@@ -141,6 +141,8 @@ Command-line tools provide efficient ways to analyze logs without requiring a de
    - Example: `wc apache.log`
 2. **`cut`**: Extracts specific fields based on delimiters.
    - Example: Extract IPs: `cut -d ' ' -f 1 apache.log`  Expanding on this, we can change the field number to -f 7 to extract the URLs and -f 9 to extract the HTTP status codes.
+     ![image](https://github.com/user-attachments/assets/1b6cc884-6820-4b7a-a040-d61fcc36524b)
+
 3. **`sort`**: Sorts output alphabetically or numerically, with options for reverse sorting.
    - Example: `cut -d ' ' -f 1 apache.log | sort -n`  we piped the output from cut into the sort command and added the -n option to sort numerically. This changed the output to list the IP addresses in ascending order.
 4. **`uniq`**: Removes duplicate lines, often combined with `sort`.
@@ -308,6 +310,250 @@ Count HTTP errors (status codes 400–599) by minute:
 awk '$9 ~ /^[4-5]/ {print $4}' apache.log | cut -d ':' -f 1,2 | uniq -c
 ```
 
+Here are some additional **important log analysis use cases** that are critical for security monitoring, troubleshooting, and system optimization:
+
 ---
 
-These use cases illustrate the flexibility of command-line tools in parsing, filtering, and analyzing logs for various purposes, from troubleshooting to security monitoring.
+### **21. Identifying IPs Generating Excessive Traffic**
+Detect potential DDoS attack attempts by identifying IPs with an unusually high number of requests:
+```bash
+cut -d ' ' -f 1 apache.log | sort | uniq -c | sort -nr | head
+```
+
+---
+
+### **22. Extracting Specific HTTP Methods**
+Check the frequency of HTTP methods (e.g., `GET`, `POST`, `DELETE`):
+```bash
+awk '{print $6}' apache.log | sort | uniq -c | sort -nr
+```
+
+---
+
+### **23. Analyzing Bandwidth Usage**
+Calculate the total data transferred (bytes field is usually `$10`):
+```bash
+awk '{sum += $10} END {print sum " bytes"}' apache.log
+```
+
+---
+
+### **24. Spotting Unauthorized Admin Access**
+Find all attempts to access sensitive paths, like `/admin` or `/wp-admin`:
+```bash
+grep "/admin" apache.log
+```
+
+---
+
+### **25. Tracing Geographic Patterns of Access**
+Combine logs with `geoiplookup` to identify the geographic location of IPs:
+```bash
+cut -d ' ' -f 1 apache.log | sort | uniq | xargs -n 1 geoiplookup
+```
+
+---
+
+### **26. Analyzing User Session Durations**
+Track session activity for a specific user (based on IP or user agent):
+```bash
+grep "203.0.113.42" apache.log | awk '{print $4, $5}'
+```
+
+---
+
+### **27. Detecting Suspiciously Long URLs**
+Search for log entries with unusually long or malformed URLs:
+```bash
+awk '{if(length($7) > 100) print $7}' apache.log
+```
+
+---
+
+### **28. Detecting File Upload Attempts**
+Look for HTTP `POST` requests targeting upload forms or paths:
+```bash
+grep "POST" apache.log | grep "/upload"
+```
+
+---
+
+### **29. Checking for Empty or Unusual Referrers**
+Find requests with no referrer (potential bot traffic):
+```bash
+awk '$11 == "-"' apache.log
+```
+
+---
+
+### **30. Identifying Repeated Errors**
+Pinpoint error messages that are occurring frequently:
+```bash
+awk '$9 ~ /^[4-5]/ {print $9}' apache.log | sort | uniq -c | sort -nr
+```
+
+---
+
+### **31. Monitoring for Vulnerability Scans**
+Detect common vulnerability scan patterns (e.g., tools like Nikto, Nmap, or Burp):
+```bash
+grep -iE "nikto|nmap|burp" apache.log
+```
+
+---
+
+### **32. Finding Requests with Suspicious User Agents**
+Identify requests with unusual or suspicious user-agent strings:
+```bash
+awk -F\" '{print $6}' apache.log | grep -iE "bot|crawler|scanner"
+```
+
+---
+
+### **33. Examining Access to Sensitive Files**
+Check for attempts to access files like `.env`, `.htaccess`, or `/etc/passwd`:
+```bash
+grep -E "\.env|\.htaccess|/etc/passwd" apache.log
+```
+
+---
+
+### **34. Counting Unique Visitors**
+Count unique IPs in the log file:
+```bash
+cut -d ' ' -f 1 apache.log | sort | uniq | wc -l
+```
+
+---
+
+### **35. Detecting Requests from Tor Exit Nodes**
+Identify requests coming from known Tor exit nodes (using a list of exit IPs):
+```bash
+grep -f tor_exit_nodes.txt apache.log
+```
+
+---
+
+### **36. Analyzing 404 Errors**
+Count and list all 404 (Not Found) errors to identify broken links:
+```bash
+awk '$9 == 404 {print $7}' apache.log | sort | uniq -c | sort -nr
+```
+
+---
+
+### **37. Tracking Search Queries**
+Extract search terms from query parameters (e.g., `q=`):
+```bash
+grep "q=" apache.log | cut -d '?' -f 2 | cut -d '&' -f 1
+```
+
+---
+
+### **38. Detecting Multiple Login Attempts from the Same IP**
+Identify IPs with multiple failed login attempts within a short time:
+```bash
+grep "login" apache.log | awk '{print $1}' | sort | uniq -c | sort -nr
+```
+
+---
+
+### **39. Highlighting Out-of-Hours Activity**
+Identify access outside normal business hours (e.g., 9 AM–5 PM):
+```bash
+awk -F'[:[]' '$2 < "09" || $2 > "17"' apache.log
+```
+
+---
+
+### **40. Parsing Logs for Malware Indicators**
+Search for file downloads with suspicious extensions (e.g., `.exe`, `.zip`):
+```bash
+grep -E "\.exe|\.zip" apache.log
+```
+
+---
+
+### **41. Verifying HTTPS Traffic**
+Check if HTTPS is used consistently:
+```bash
+grep -i "https://" apache.log
+```
+
+---
+
+### **42. Spotting Credential Exposure**
+Identify sensitive data exposed in query parameters or URLs:
+```bash
+grep -iE "password|token" apache.log
+```
+
+---
+
+### **43. Monitoring Load Balancer Health**
+Find all health check requests to ensure the load balancer is functioning:
+```bash
+grep "healthcheck" apache.log
+```
+
+---
+
+### **44. Detecting Privilege Escalation Attempts**
+Look for unusual access to privileged directories or files:
+```bash
+grep -E "/root|/etc" apache.log
+```
+
+---
+
+### **45. Viewing Logs by Specific Date and Time**
+Extract logs from a specific hour on a given date:
+```bash
+grep "31/Jul/2023:15:" apache.log
+```
+
+---
+
+### **46. Combining Commands for Advanced Analysis**
+Find the top 5 IPs causing 500 errors:
+```bash
+awk '$9 == 500 {print $1}' apache.log | sort | uniq -c | sort -nr | head -5
+```
+
+---
+
+### **47. Filtering Logs for Specific Ports**
+Search for traffic to or from specific ports (e.g., `80` or `443`):
+```bash
+grep ":80" apache.log
+```
+
+---
+
+### **48. Identifying Repeated Requests**
+Spot repeated requests to the same resource (e.g., `/login.php`):
+```bash
+grep "/login.php" apache.log | cut -d ' ' -f 1 | sort | uniq -c | sort -nr
+```
+
+---
+
+### **49. Parsing Logs for Dynamic Content**
+Identify pages with dynamic content parameters (e.g., `?id=`):
+```bash
+grep "\?id=" apache.log
+```
+
+---
+
+### **50. Grouping by Response Time**
+Categorize requests by response time ranges (if the log includes response times):
+```bash
+awk '{if ($10 < 100) print "Fast"; else if ($10 < 500) print "Moderate"; else print "Slow"}' apache.log | sort | uniq -c
+```
+
+---
+
+These advanced use cases cover a wide array of scenarios, making them invaluable for in-depth log analysis. They provide insights into potential security breaches, performance issues, and operational anomalies.
+
+
