@@ -6,7 +6,6 @@
   - A search engine for internet-connected devices such as desktops, servers, IoT devices, and industrial systems.
   - Created by John C. Matherly in 2009.
   - Used in network security, market research, cyber risk assessment, IoT scanning, and tracking ransomware.
-
 ---
 
 ### **Core Shodan Interfaces**
