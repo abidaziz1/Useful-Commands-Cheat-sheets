@@ -1,6 +1,5 @@
 
 ### NMAP Techniques:
-
 #### Basics and Efficient Scanning:
 1. **Discovering Hosts and MACs**:
    - Use `-sn` when you only need to know which hosts are active and their MAC addresses.
