@@ -4,7 +4,7 @@ Here’s a Recon-ng cheat sheet with real-life example commands to help make it 
 1. **Create a Workspace for Target Organization**
    ```bash
    workspaces create example_org
-   ```
+  ```
 
 2. **Set Up API Keys (if you have any)**
    ```bash
