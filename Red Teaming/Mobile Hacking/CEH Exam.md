@@ -176,6 +176,70 @@ Attackers exploit app distribution platforms to distribute malicious apps by:
 - **Data Theft:** Extracting sensitive user data such as call logs, photos, videos, and financial details.  
 - **Device Exploitation:** Compromising user devices for further attacks or espionage.  
 - **Further Attacks:** Using gathered data to perform phishing, identity theft, or fraud.  
+### Mobile Spam  
+Mobile spam (e.g., SMS, MMS, IM, and email spam) refers to unsolicited bulk messages targeting mobile devices. These messages often:  
+- Advertise products/services.  
+- Contain malicious links tricking users into revealing sensitive information.  
+- Claim false prizes and redirect victims to premium-rate numbers.  
+- Deploy phishing tactics to steal personal or financial information, leading to identity theft or fraud.
+
+**Consequences of Mobile Spam:**  
+- Financial losses.  
+- Malware infections.  
+- Corporate data breaches.
+
+---
+
+### SMS Phishing (SMiShing)  
+SMiShing uses SMS to send deceptive messages containing malicious links or phone numbers to acquire personal or financial information. Attackers lure victims with messages about lotteries, account issues, or urgent notifications.
+
+**Why SMiShing is Effective:**  
+- High open rates for SMS compared to emails.  
+- Users' trust in SMS as a direct and personal form of communication.  
+- Limited awareness of SMiShing risks.  
+- Shortened URLs that hide malicious links.  
+- Lack of anti-phishing features in SMS platforms.  
+
+---
+
+### Bluetooth and Wi-Fi Pairing Attacks  
+Open Bluetooth or automatic Wi-Fi settings expose devices to:  
+- **Bluesnarfing:** Stealing information like contact lists, emails, and text messages via Bluetooth.  
+- **Bluebugging:** Gaining unauthorized control over Bluetooth-enabled devices to access data, intercept messages, or make calls.  
+- **MITM Attacks:** Intercepting unencrypted data on public networks.  
+
+---
+
+### Agent Smith Attack  
+Attackers create malicious apps disguised as games or tools, often distributed via third-party app stores like 9Apps. Once installed, these apps replace legitimate ones with infected versions, such as WhatsApp or MX Player, to:  
+- Display fraudulent ads for financial gain.  
+- Steal personal information and credentials.  
+
+---
+
+### SS7 Vulnerability  
+The Signaling System 7 (SS7) protocol, used for communication between mobile networks, lacks robust authentication. Attackers exploit this to:  
+- Intercept SMS messages, OTPs, and calls.  
+- Bypass two-factor authentication.  
+- Perform MITM attacks, phone tapping, or DoS attacks against telecom operators.  
+- Track device locations and reveal network identities.  
+
+---
+
+### Simjacker Attack  
+Simjacker exploits the S@T browser on SIM cards, allowing attackers to send malicious SMS to:  
+- Capture device location.  
+- Monitor calls and gather IMEI and other data.  
+- Force connections to malicious websites.  
+- Perform DoS attacks on SIM cards.  
+
+**Steps of Simjacker Attack:**  
+1. Attacker sends a fraudulent SMS with hidden code.  
+2. SIM’s S@T browser processes the malicious code.  
+3. Device executes unauthorized commands.  
+4. User information is exfiltrated via SMS for malicious use.  
+
+---
 
 
 
