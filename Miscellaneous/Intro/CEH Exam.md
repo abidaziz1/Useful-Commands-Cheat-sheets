@@ -1369,3 +1369,38 @@ Cyberlaw, also known as Internet law, addresses legal issues surrounding the use
 - **Privacy vs. Security**: Balancing individual privacy rights with national and organizational security is a recurring issue.  
 
 By aligning international efforts and improving legal frameworks, governments aim to address these challenges and foster a safer digital environment.
+![WhatsApp Image 2024-12-21 at 22 12 08_a60a9e9e](https://github.com/user-attachments/assets/c8748c0d-9b8f-4266-a7f4-71d62420b928)
+![WhatsApp Image 2024-12-21 at 22 12 08_d4a5dd44](https://github.com/user-attachments/assets/e3edd22d-b2f0-41b4-a86e-a111098f7523)
+![WhatsApp Image 2024-12-21 at 22 12 09_410b00d8](https://github.com/user-attachments/assets/5ea2f35d-d6ad-46d4-94e0-5f83269be0c8)
+![WhatsApp Image 2024-12-21 at 22 12 09_4b8f8684](https://github.com/user-attachments/assets/16253066-32d5-406b-b07c-92e61d22d743)
+![WhatsApp Image 2024-12-21 at 22 12 09_939aacfd](https://github.com/user-attachments/assets/8ebaa93e-e122-49a2-a047-4d304b7b8fad)
+
+![WhatsApp Image 2024-12-21 at 22 12 10_0a74905c](https://github.com/user-attachments/assets/2e501f80-ba92-4cde-a100-3a21dfee7bd7)
+![WhatsApp Image 2024-12-21 at 22 12 10_6917b89e](https://github.com/user-attachments/assets/858fa5ac-d78b-4a51-a036-dad11af57678)
+![WhatsApp Image 2024-12-21 at 22 12 10_8128aa87](https://github.com/user-attachments/assets/010e6e3f-a536-4ea1-8e36-28885d02c09d)
+![WhatsApp Image 2024-12-21 at 22 12 11_54e7192f](https://github.com/user-attachments/assets/dad50d2f-0f99-4af9-8320-c24e348f4dc8)
+![WhatsApp Image 2024-12-21 at 22 12 11_d1b79407](https://github.com/user-attachments/assets/9ec105a6-729e-45f6-8d72-054a30b61767)
+![WhatsApp Image 2024-12-21 at 22 12 11_64bae1c5](https://github.com/user-attachments/assets/842eaf9c-92ba-4b45-8d47-ff9a9b0a8333)
+![WhatsApp Image 2024-12-21 at 22 12 11_32853744](https://github.com/user-attachments/assets/484c0c6e-7f20-4de3-b705-944f64826f1a)
+![WhatsApp Image 2024-12-21 at 22 12 12_0f2863ef](https://github.com/user-attachments/assets/6eb89cdc-745b-47da-ad20-a3d3c2f1628e)
+![WhatsApp Image 2024-12-21 at 22 12 12_e58538aa](https://github.com/user-attachments/assets/ce8055bc-4381-4da2-b840-221c1aa4ec4d)
+![WhatsApp Image 2024-12-21 at 22 12 13_e78a9cc0](https://github.com/user-attachments/assets/7435747d-b516-4c21-8c22-7fb53ffe7b66)
+![WhatsApp Image 2024-12-21 at 22 12 13_db49ad04](https://github.com/user-attachments/assets/fa26b5d6-5804-43e5-9520-73c861d05ee4)
+![WhatsApp Image 2024-12-21 at 22 12 13_2ac9ae31](https://github.com/user-attachments/assets/6ddfdced-1c71-4ad6-a887-a0d9ed1ce9f4)
+![WhatsApp Image 2024-12-21 at 22 12 14_c427f081](https://github.com/user-attachments/assets/3e2b4fde-1a18-43b8-81e5-080aa702079f)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
