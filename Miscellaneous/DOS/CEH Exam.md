@@ -10,7 +10,7 @@
 - Causing infinite loops or other errors in system operations.
 
 #### **Impact of DoS Attacks:**
-- Resource depletion (bandwidth, CPU, memory).
+- Resource depletion (bandwidth, CPU, memory). 
 - Network outages and service disruptions.
 - Financial losses, operational disruptions, and loss of goodwill.
 - Potential destruction of files, programs, or network components.
