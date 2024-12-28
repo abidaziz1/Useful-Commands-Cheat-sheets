@@ -1,6 +1,5 @@
 **Importance of Mobile Security**  
 With the rise of mobile technology, smartphones and tablets are increasingly replacing desktops and laptops. These devices allow users to perform a wide range of tasks, including Internet browsing, GPS navigation, and mobile commerce (e.g., banking, purchasing goods, redeeming tickets). However, many users overlook the importance of security software, leaving them vulnerable to attacks.
-
 **Learning Objectives**  
 This module focuses on understanding and mitigating threats to mobile platforms. By the end of the module, you will learn:  
 1. Mobile platform attack vectors.  
