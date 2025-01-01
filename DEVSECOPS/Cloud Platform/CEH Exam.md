@@ -1,4 +1,4 @@
-![WhatsApp Image 2025-01-01 at 19 13 53_8a377d15](https://github.com/user-attachments/assets/02c461fc-18bd-476a-bb4c-24dd99d468b5)**Introduction to Cloud Computing**
+**Introduction to Cloud Computing**
 Cloud computing provides IT capabilities like infrastructure, platforms, and software as services over the internet. Users access these services on-demand and pay based on usage. Common examples include Gmail, Dropbox, and Salesforce. 
 
 ---
