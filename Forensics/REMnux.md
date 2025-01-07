@@ -1,6 +1,5 @@
 
 ---
-
 ### **REMnux Advanced Malware Analysis Cheat Sheet**
 
 ---
