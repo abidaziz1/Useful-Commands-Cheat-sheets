@@ -1,4 +1,4 @@
-![WhatsApp Image 2025-01-20 at 00 42 51_764a6e16](https://github.com/user-attachments/assets/5e8756d6-4fc3-4662-ba7e-43a134bf371a)![WhatsApp Image 2025-01-18 at 13 09 00_45aaf87e](https://github.com/user-attachments/assets/d998270e-b2bf-4350-b5a6-57960afd6d55)The **IoT (Internet of Things) architecture** is a structured framework that enables the seamless functioning of IoT systems. It consists of multiple layers, each with specific roles and responsibilities, working together to collect, process, and deliver data across various sectors like healthcare, transportation, retail, and more. Below is a detailed breakdown of the IoT architecture and its application areas:
+The **IoT (Internet of Things) architecture** is a structured framework that enables the seamless functioning of IoT systems. It consists of multiple layers, each with specific roles and responsibilities, working together to collect, process, and deliver data across various sectors like healthcare, transportation, retail, and more. Below is a detailed breakdown of the IoT architecture and its application areas:
 
 ---
 
@@ -993,7 +993,7 @@ Both attacks highlight the need for **proactive security measures** in IoT ecosy
 ![WhatsApp Image 2025-01-18 at 13 09 01_684331c3](https://github.com/user-attachments/assets/76c48da3-3009-4fc8-9900-d6733bed836d)
 ![WhatsApp Image 2025-01-18 at 13 09 03_4a3d05e6](https://github.com/user-attachments/assets/3eb212a2-0f2f-470f-84d4-b418f72c20eb)
 ![WhatsApp Image 2025-01-18 at 13 09 03_5e05849a](https://github.com/user-attachments/assets/177f9300-fd3a-4a21-ae49-4ae70819c088)
-![WhatsApp Image 2025-01-20 at 00 42 51_764a6e16](https://github.com/user-attachments/assets/dcf7119f-fcb3-4626-a173-d7d9245dc6f4)
+
 
 
 
